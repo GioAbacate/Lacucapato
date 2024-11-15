@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqijh7cgpmo13"
-valid=false
+uid="uid://cimsw1avddski"
+path="res://.godot/imported/cenario.png-d876f648590d116032e92c908852daed.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Imagens/Sprite-0009.png"
+source_file="res://Imagens/cenario.png"
+dest_files=["res://.godot/imported/cenario.png-d876f648590d116032e92c908852daed.ctex"]
 
 [params]
 

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlcnprlwnjh7h"]
+
+[ext_resource type="Texture2D" uid="uid://c2cqak6oain04" path="res://Imagens/cacti-big.png" id="1_c43yn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2fo16"]
+size = Vector2(16, 27.25)
+
+[node name="StaticBody2D2" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(211, 127)
+scale = Vector2(0.25, 0.28)
+texture = ExtResource("1_c43yn")
+region_enabled = true
+region_rect = Rect2(0, 0, 52.6109, 101)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(211, 126.625)
+shape = SubResource("RectangleShape2D_2fo16")

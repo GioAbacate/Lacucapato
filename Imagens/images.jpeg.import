@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://14s2kgf042ql"
-valid=false
+uid="uid://dse3kecwftnua"
+path="res://.godot/imported/images.jpeg-1be12ad176e8200d0a43e563ce9d3abc.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://Imagens/Sprite-0006.png"
+source_file="res://Imagens/images.jpeg"
+dest_files=["res://.godot/imported/images.jpeg-1be12ad176e8200d0a43e563ce9d3abc.ctex"]
 
 [params]
 
