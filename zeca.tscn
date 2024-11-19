@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://mkk5dyu4i464"]
+
+[ext_resource type="Texture2D" uid="uid://igef0yqxmxkm" path="res://Imagens/cenario/Zeca-Urubu.png" id="1_catnq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7pdo"]
+
+[node name="zeca" type="StaticBody2D"]
+position = Vector2(79, 108)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_catnq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w7pdo")

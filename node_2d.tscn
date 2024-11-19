@@ -1,11 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://cijnxcnf3cm5m"]
+[gd_scene load_steps=20 format=3 uid="uid://cijnxcnf3cm5m"]
 
 [ext_resource type="Shader" path="res://node_2d.gdshader" id="1_geirb"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_qk3an"]
 [ext_resource type="Texture2D" uid="uid://irh237oorhc1" path="res://Imagens/pato nova.png" id="2_3ey10"]
-[ext_resource type="Texture2D" uid="uid://cimsw1avddski" path="res://Imagens/cenario.png" id="2_xy0i6"]
-[ext_resource type="Texture2D" uid="uid://c2cqak6oain04" path="res://Imagens/cacti-big.png" id="4_f1heo"]
+[ext_resource type="Texture2D" uid="uid://bgatlpw8hc027" path="res://Imagens/cenario/cenario.png" id="2_rljyv"]
+[ext_resource type="Texture2D" uid="uid://8joiy2cna0ya" path="res://Imagens/cenario/chão.png" id="5_kgqpq"]
+[ext_resource type="Texture2D" uid="uid://cd83knp2wpsul" path="res://Imagens/cenario/Cacto.png" id="6_jk88n"]
 [ext_resource type="PackedScene" uid="uid://yxx2bkwh0fr2" path="res://cacto_1.tscn" id="6_qd6yh"]
+[ext_resource type="PackedScene" uid="uid://bn6m0gkfauhxw" path="res://cactoATUAL.tscn" id="6_tjfau"]
+[ext_resource type="Texture2D" uid="uid://ctnowol6xyyqa" path="res://Imagens/cenario/Céu.png" id="8_ndrcq"]
+[ext_resource type="Texture2D" uid="uid://dnaokgi4t2qc3" path="res://Imagens/cenario/Nuvem 1.png" id="9_jotup"]
+[ext_resource type="PackedScene" uid="uid://mkk5dyu4i464" path="res://zeca.tscn" id="11_qfbcw"]
+[ext_resource type="PackedScene" uid="uid://bty8xcv76o3gb" path="res://zeca_02.tscn" id="12_a1kry"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ddg1h"]
 shader = ExtResource("1_geirb")
@@ -16,10 +22,23 @@ shader_parameter/speed = 0.11
 size = Vector2(19, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5gye"]
-size = Vector2(1816.2, 20)
+size = Vector2(2432, 20)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rotn1"]
+a = Vector2(0, -140.28)
+b = Vector2(0, -44.28)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_a2bvq"]
+a = Vector2(0, -88)
+b = Vector2(0, 72)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2fo16"]
 size = Vector2(13.0961, 27.25)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gg33y"]
+shader = ExtResource("1_geirb")
+shader_parameter/Direction = Vector2(1, 0)
+shader_parameter/speed = 0.1
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(1, 0)
@@ -34,7 +53,7 @@ anchors_preset = -1
 anchor_right = 5.42083
 offset_right = 515.001
 offset_bottom = 160.0
-texture = ExtResource("2_xy0i6")
+texture = ExtResource("2_rljyv")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -45,6 +64,7 @@ process_mode = 3
 motion_mirroring = Vector2(0.24, 0.16)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(-6, 0)
 script = ExtResource("1_qk3an")
 
 [node name="Camera2D2" type="Camera2D" parent="CharacterBody2D"]
@@ -59,7 +79,7 @@ editor_draw_drag_margin = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 texture_filter = 5
-position = Vector2(15, 121)
+position = Vector2(15.5, 120)
 texture = ExtResource("2_3ey10")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
@@ -69,31 +89,28 @@ shape = SubResource("RectangleShape2D_a4y1a")
 [node name="chao" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chao"]
-position = Vector2(907.898, 150)
+position = Vector2(1215, 150)
 shape = SubResource("RectangleShape2D_l5gye")
 
 [node name="Sprite2D" type="Sprite2D" parent="chao"]
-position = Vector2(908.324, 150.203)
-scale = Vector2(7.56397, 1.22467)
-texture = ExtResource("2_xy0i6")
+position = Vector2(1215, 150.203)
+scale = Vector2(10.1333, 1.22467)
+texture = ExtResource("5_kgqpq")
 region_enabled = true
 region_rect = Rect2(0, 144, 240, 16)
 
-[node name="cacto1" type="StaticBody2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="chao"]
+position = Vector2(1815, 140.28)
+shape = SubResource("SegmentShape2D_rotn1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cacto1"]
-position = Vector2(205.743, 126.794)
-shape = SubResource("RectangleShape2D_2fo16")
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="chao"]
+position = Vector2(2215, 88)
+shape = SubResource("SegmentShape2D_a2bvq")
 
-[node name="Sprite2D" type="Sprite2D" parent="cacto1"]
-position = Vector2(205.885, 126.929)
-scale = Vector2(0.272895, 0.28)
-texture = ExtResource("4_f1heo")
-region_enabled = true
-region_rect = Rect2(0, 0, 52.6109, 101)
+[node name="cacto1" parent="." instance=ExtResource("6_tjfau")]
 
 [node name="cacto2" type="StaticBody2D" parent="."]
-position = Vector2(64, 0)
+position = Vector2(15.5, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cacto2"]
 position = Vector2(205.743, 126.794)
@@ -102,24 +119,81 @@ shape = SubResource("RectangleShape2D_2fo16")
 [node name="Sprite2D" type="Sprite2D" parent="cacto2"]
 position = Vector2(205.885, 126.929)
 scale = Vector2(0.272895, 0.28)
-texture = ExtResource("4_f1heo")
+texture = ExtResource("6_jk88n")
 region_enabled = true
 region_rect = Rect2(0, 0, 52.6109, 101)
 
 [node name="cacto3" parent="." instance=ExtResource("6_qd6yh")]
-position = Vector2(135, 0)
+position = Vector2(95, 0)
 
-[node name="cacto1" parent="cacto3" instance=ExtResource("6_qd6yh")]
-position = Vector2(56, 0)
+[node name="cacto4" parent="." instance=ExtResource("6_qd6yh")]
+position = Vector2(543, 0)
 
-[node name="cacto2" parent="cacto3" instance=ExtResource("6_qd6yh")]
-position = Vector2(96, 0)
+[node name="cacto5" parent="." instance=ExtResource("6_qd6yh")]
+position = Vector2(167, 0)
 
-[node name="cacto3" parent="cacto3" instance=ExtResource("6_qd6yh")]
-position = Vector2(139.79, 0)
+[node name="cacto8" parent="." instance=ExtResource("6_qd6yh")]
+position = Vector2(436.743, 0)
 
-[node name="cacto1" parent="cacto3/cacto3" instance=ExtResource("6_qd6yh")]
-position = Vector2(36.21, 0)
+[node name="cacto9" parent="." instance=ExtResource("6_qd6yh")]
+position = Vector2(649.723, 0)
 
-[node name="cacto2" parent="cacto3/cacto3" instance=ExtResource("6_qd6yh")]
-position = Vector2(73.1903, 0)
+[node name="cacto13" parent="." instance=ExtResource("6_qd6yh")]
+position = Vector2(1119, 0)
+
+[node name="cacto14" parent="." instance=ExtResource("6_qd6yh")]
+position = Vector2(1255, 0)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+show_behind_parent = true
+offset_left = 1815.0
+offset_right = 2431.0
+offset_bottom = 160.0
+texture = ExtResource("8_ndrcq")
+expand_mode = 1
+
+[node name="nuvem" type="TextureRect" parent="."]
+top_level = true
+material = SubResource("ShaderMaterial_gg33y")
+offset_left = -1.5
+offset_top = 24.0
+offset_right = 1816.5
+offset_bottom = 64.0
+texture = ExtResource("9_jotup")
+stretch_mode = 1
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="nuvem"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="nuvem/ParallaxBackground"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1815.0
+offset_right = 2767.0
+offset_bottom = 59.0
+scale = Vector2(0.520759, 1.21908)
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 43
+text = "Parabéns, você completou a fase!"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 3
+clip_text = true
+uppercase = true
+
+[node name="cacto16" parent="." instance=ExtResource("6_tjfau")]
+position = Vector2(1055, 3.8147e-06)
+
+[node name="cacto17" parent="." instance=ExtResource("6_tjfau")]
+position = Vector2(383, 3.8147e-06)
+
+[node name="cacto18" parent="." instance=ExtResource("6_tjfau")]
+position = Vector2(791, 0)
+
+[node name="zeca" parent="." instance=ExtResource("11_qfbcw")]
+position = Vector2(460.743, 132)
+
+[node name="zeca2" parent="." instance=ExtResource("11_qfbcw")]
+position = Vector2(1092.74, 132)
+
+[node name="zeca02" parent="." instance=ExtResource("12_a1kry")]
+position = Vector2(1620.74, 132)
