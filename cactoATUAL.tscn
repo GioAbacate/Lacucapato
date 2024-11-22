@@ -3,18 +3,20 @@
 [ext_resource type="Texture2D" uid="uid://cd83knp2wpsul" path="res://Imagens/cenario/Cacto.png" id="1_a5e05"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2fo16"]
-size = Vector2(13.0961, 27.25)
+size = Vector2(13.3333, 34.3698)
 
 [node name="cacto1" type="StaticBody2D"]
 position = Vector2(-25, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(157.953, 125.865)
+texture_filter = 5
+texture_repeat = 2
+position = Vector2(140, 114.889)
+scale = Vector2(0.75, 0.75)
 shape = SubResource("RectangleShape2D_2fo16")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(158.095, 126)
-scale = Vector2(0.272895, 0.28)
+texture_filter = 1
+position = Vector2(141, 113)
 texture = ExtResource("1_a5e05")
-region_enabled = true
 region_rect = Rect2(0, 0, 52.6109, 101)
