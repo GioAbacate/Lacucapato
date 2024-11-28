@@ -1,17 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://mkk5dyu4i464"]
+[gd_scene load_steps=4 format=3 uid="uid://mkk5dyu4i464"]
 
+[ext_resource type="Script" path="res://static_body_2d.gd" id="1_608ww"]
 [ext_resource type="Texture2D" uid="uid://igef0yqxmxkm" path="res://Imagens/cenario/Zeca-Urubu.png" id="1_catnq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7pdo"]
-size = Vector2(14.5, 12)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efg8e"]
 
 [node name="zeca" type="StaticBody2D"]
 position = Vector2(79, 108)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("1_608ww")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_efg8e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 5
 texture = ExtResource("1_catnq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 1)
-shape = SubResource("RectangleShape2D_w7pdo")
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D" method="_on_area_2d_body_entered"]

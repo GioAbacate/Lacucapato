@@ -1,30 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://bn6m0gkfauhxw"]
+[gd_scene load_steps=4 format=3 uid="uid://81kwf0qx4xup"]
 
-[ext_resource type="Texture2D" uid="uid://cd83knp2wpsul" path="res://Imagens/cenario/Cacto.png" id="1_a5e05"]
-[ext_resource type="Script" path="res://static_body_2d.gd" id="1_cqcm8"]
+[ext_resource type="Script" path="res://static_body_2d.gd" id="1_qlo6e"]
+[ext_resource type="Texture2D" uid="uid://igef0yqxmxkm" path="res://Imagens/cenario/Zeca-Urubu.png" id="2_c2dds"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2fo16"]
-size = Vector2(13.3333, 34.3698)
+size = Vector2(24, 18.6666)
 
 [node name="cacto1" type="StaticBody2D"]
 position = Vector2(-25, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-script = ExtResource("1_cqcm8")
+script = ExtResource("1_qlo6e")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 texture_filter = 5
 texture_repeat = 2
-position = Vector2(140, 114.889)
+position = Vector2(150, 113)
 scale = Vector2(0.75, 0.75)
 shape = SubResource("RectangleShape2D_2fo16")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(141, 113)
-texture = ExtResource("1_a5e05")
+position = Vector2(149, 112)
+texture = ExtResource("2_c2dds")
 region_rect = Rect2(0, 0, 52.6109, 101)
 
 [connection signal="body_entered" from="Area2D" to="StaticBody2D" method="_on_area_2d_body_entered"]

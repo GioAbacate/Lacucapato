@@ -1,15 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://cijnxcnf3cm5m"]
+[gd_scene load_steps=16 format=3 uid="uid://cijnxcnf3cm5m"]
 
 [ext_resource type="Shader" path="res://node_2d.gdshader" id="1_geirb"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_qk3an"]
 [ext_resource type="Texture2D" uid="uid://irh237oorhc1" path="res://Imagens/pato nova.png" id="2_3ey10"]
 [ext_resource type="Texture2D" uid="uid://bgatlpw8hc027" path="res://Imagens/cenario/cenario.png" id="2_rljyv"]
 [ext_resource type="Texture2D" uid="uid://8joiy2cna0ya" path="res://Imagens/cenario/chão.png" id="5_kgqpq"]
+[ext_resource type="PackedScene" uid="uid://81kwf0qx4xup" path="res://zecaAtual.tscn" id="6_3nckd"]
+[ext_resource type="Texture2D" uid="uid://dep0yi8risx8i" path="res://Imagens/cenario/PAAAATOOO.png" id="6_qb12n"]
 [ext_resource type="PackedScene" uid="uid://bn6m0gkfauhxw" path="res://cactoATUAL.tscn" id="6_tjfau"]
-[ext_resource type="Texture2D" uid="uid://ctnowol6xyyqa" path="res://Imagens/cenario/Céu.png" id="8_ndrcq"]
 [ext_resource type="Texture2D" uid="uid://dnaokgi4t2qc3" path="res://Imagens/cenario/Nuvem 1.png" id="9_jotup"]
-[ext_resource type="PackedScene" uid="uid://cnarsvf7dchhs" path="res://urubu.tscn" id="10_qjqkh"]
-[ext_resource type="PackedScene" uid="uid://mkk5dyu4i464" path="res://zeca.tscn" id="11_qfbcw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ddg1h"]
 shader = ExtResource("1_geirb")
@@ -60,7 +59,7 @@ process_mode = 3
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="CanvasLayer/TextureRect/ParallaxBackground"]
 motion_mirroring = Vector2(0.24, 0.16)
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
 position = Vector2(-6, 0)
 script = ExtResource("1_qk3an")
 
@@ -83,21 +82,18 @@ texture = ExtResource("2_3ey10")
 position = Vector2(43, 128)
 shape = SubResource("RectangleShape2D_a4y1a")
 
-[node name="cacto2" parent="." instance=ExtResource("6_tjfau")]
-position = Vector2(252, 11)
+[node name="Timer" type="Timer" parent="Player"]
 
 [node name="cacto1" parent="." instance=ExtResource("6_tjfau")]
-position = Vector2(19, 11)
-
-[node name="cacto3" parent="." instance=ExtResource("6_tjfau")]
-position = Vector2(505, 11)
+position = Vector2(761, 11)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 show_behind_parent = true
+texture_filter = 5
 offset_left = 1815.0
-offset_right = 2431.0
+offset_right = 2218.0
 offset_bottom = 160.0
-texture = ExtResource("8_ndrcq")
+texture = ExtResource("6_qb12n")
 expand_mode = 1
 
 [node name="nuvem" type="TextureRect" parent="."]
@@ -115,24 +111,21 @@ stretch_mode = 1
 [node name="ParallaxLayer" type="ParallaxLayer" parent="nuvem/ParallaxBackground"]
 
 [node name="Label" type="Label" parent="."]
-offset_left = 1815.0
-offset_right = 2767.0
-offset_bottom = 59.0
+modulate = Color(0.0605303, 0.0605303, 0.0605303, 1)
+texture_filter = 5
+offset_left = 2164.0
+offset_top = 82.0
+offset_right = 2234.0
+offset_bottom = 141.0
 scale = Vector2(0.520759, 1.21908)
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 43
-text = "Parabéns, você completou a fase!"
+text = "Fim"
 horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 3
 clip_text = true
 uppercase = true
-
-[node name="zeca2" parent="." instance=ExtResource("11_qfbcw")]
-position = Vector2(499, 124)
-
-[node name="zeca" parent="." instance=ExtResource("11_qfbcw")]
-position = Vector2(285, 107)
 
 [node name="chao" type="StaticBody2D" parent="."]
 
@@ -161,10 +154,49 @@ shape = SubResource("SegmentShape2D_a2bvq")
 position = Vector2(0, 185)
 shape = SubResource("SegmentShape2D_rotn1")
 
-[node name="Sprite2D" parent="." instance=ExtResource("10_qjqkh")]
+[node name="cacto2" parent="." instance=ExtResource("6_tjfau")]
+position = Vector2(203, 11)
 
-[node name="Sprite2D2" parent="." instance=ExtResource("10_qjqkh")]
-position = Vector2(191, 128)
+[node name="cacto3" parent="." instance=ExtResource("6_3nckd")]
+position = Vector2(93, 11)
 
-[node name="Sprite2D3" parent="." instance=ExtResource("10_qjqkh")]
-position = Vector2(234, 128)
+[node name="cacto4" parent="." instance=ExtResource("6_3nckd")]
+position = Vector2(303, 14)
+
+[node name="cacto5" parent="." instance=ExtResource("6_3nckd")]
+position = Vector2(533, -4)
+
+[node name="cacto6" parent="." instance=ExtResource("6_tjfau")]
+position = Vector2(421, 11)
+
+[node name="cacto7" parent="." instance=ExtResource("6_tjfau")]
+position = Vector2(674, 11)
+
+[node name="cacto8" parent="." instance=ExtResource("6_tjfau")]
+position = Vector2(10, 11)
+
+[node name="cacto9" parent="." instance=ExtResource("6_3nckd")]
+position = Vector2(836, -3)
+
+[node name="cacto10" parent="." instance=ExtResource("6_3nckd")]
+position = Vector2(1417, 12)
+
+[node name="cacto11" parent="." instance=ExtResource("6_tjfau")]
+position = Vector2(1016, 11)
+
+[node name="cacto12" parent="." instance=ExtResource("6_tjfau")]
+position = Vector2(1170, 11)
+
+[node name="cacto13" parent="." instance=ExtResource("6_3nckd")]
+position = Vector2(1256, 11)
+
+[node name="cacto14" parent="." instance=ExtResource("6_3nckd")]
+position = Vector2(1581, 13)
+
+[node name="cacto15" parent="." instance=ExtResource("6_tjfau")]
+position = Vector2(1353, 11)
+
+[node name="cacto16" parent="." instance=ExtResource("6_tjfau")]
+position = Vector2(1509, 11)
+
+[connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
